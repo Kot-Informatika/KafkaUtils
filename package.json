@@ -1,0 +1,23 @@
+{
+  "name": "@kektus/kafka-utils",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "dependencies": {
+    "kafkajs": "^1.11.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flagcard/KafkaUtils.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/flagcard/KafkaUtils/issues"
+  },
+  "homepage": "https://github.com/flagcard/KafkaUtils#readme",
+  "description": ""
+}
