@@ -49,7 +49,7 @@ class Consumer {
                 const { topic } = message;
                 const recoveredList = this.callbacks.get(topic);
                 if (recoveredList) {
-                    recoveredList.forEach(cb => cb(message));
+                    recoveredList.forEach(cb => cb({ topic: topic, data: JSON.parse(message.message.value || '{}'), key: message.message.key }));
                 }
             }
         })

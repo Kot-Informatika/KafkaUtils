@@ -14,8 +14,8 @@ async function go() {
     await consumer.connect();
     console.log('Consumer connected.');
 
-    await consumer.bind({ topic: 'test-topic', fromBeginning: true }, ({ topic, message }) => {
-        console.log(`[topic '${topic}'] - ${message.key} > ${message.value}`);
+    await consumer.bind({ topic: 'test-topic', fromBeginning: true }, ({ topic, data, key}) => {
+        console.log(`[topic '${topic}'] - ${key} > ${JSON.stringify(data, null, 2)}`);
     })
 
     await consumer.init();
