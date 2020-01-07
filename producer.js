@@ -6,11 +6,12 @@ class Producer {
  * @param {Array} brokers 
  * @param {Object} param2 
  */
-    constructor(nodeId, brokers, { verbose }) {
+    constructor(nodeId, brokers, { verbose, connectionTimeout }) {
         this.kafka = new Kafka({
             logLevel: logLevel.ERROR,
             brokers: brokers.map(b => `${b.host}:${b.port}`),
             clientId: nodeId || 'example-producer',
+            connectionTimeout: connectionTimeout || 3000,
         });
         this.producer = this.kafka.producer()
         this.verbose = verbose === true;

@@ -9,11 +9,12 @@ class Consumer {
      * @param {Array} brokers
      * @param {Object} param2 
      */
-    constructor(nodeId, groupId, brokers, { verbose }) {
+    constructor(nodeId, groupId, brokers, { verbose, connectionTimeout}) {
         this.kafka = new Kafka({
             logLevel: logLevel.ERROR,
             brokers: brokers.map(b => `${b.host}:${b.port}`),
             clientId: nodeId || 'example-producer',
+            connectionTimeout: connectionTimeout || 3000,
         });
         this.consumer = this.kafka.consumer({ groupId: groupId || 'test-group' });
         this.verbose = verbose === true;
